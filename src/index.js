@@ -81,8 +81,6 @@
 		document.body.appendChild(ifr);
 	};
 
-	// 向iframe发送信息，信息会被写到res.sspsky.com域名下的cookie中
-	// 签名？postMessage时，附带签名信息，proxy验证签名通过后，才写cookie
 	var postMessage = function postMessage(msg) {
 		if (isInIframe()) return;
 		if (!isType(msg, 'Object') /* || Object.keys(msg).length === 0*/ ) return;
@@ -117,7 +115,6 @@
 		}
 	};
 
-	// 接收res.sspsky.com发送的信息，主要是cookie信息
 	// 向iframe下发push指令
 	// 通过iframe向主页面push信息
 	var getMessage = function getMessage(_callback) {
